@@ -1,13 +1,11 @@
 package impl
 
 const (
-	insertBookSQL = `INSERT INTO books (
-		id,create_at,create_by,update_at,update_by,name,author
-	) VALUES (?,?,?,?,?,?,?);`
+	insertBook = `INSERT INTO books(id,status,create_at,create_by,name,author) VALUES (?,?,?,?,?,?);`
 
-	updateBookSQL = `UPDATE books SET update_at=?,update_by=?,name=?,author=? WHERE id =?`
+	queryBook = `SELECT * FROM books Where name Like ? AND author Like ? LIMIT ?,?`
 
-	queryBookSQL = `SELECT * FROM books`
+	updateBook = `UPDATE books SET update_at=?,update_by=?,name=?,author=? WHERE id =?`
 
-	deleteBookSQL = `DELETE FROM books WHERE id = ?`
+	deleteBook = `DELETE FROM books WHERE id = ?`
 )

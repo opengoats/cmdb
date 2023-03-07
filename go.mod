@@ -5,25 +5,21 @@ go 1.19
 require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/caarlos0/env/v6 v6.10.1
-	github.com/emicklei/go-restful-openapi v1.4.1
 	github.com/emicklei/go-restful-openapi/v2 v2.9.1
 	github.com/emicklei/go-restful/v3 v3.10.1
 	github.com/go-openapi/spec v0.20.8
 	github.com/go-playground/validator/v10 v10.11.2
 	github.com/go-sql-driver/mysql v1.7.0
-	github.com/imdario/mergo v0.3.13
 	github.com/infraboard/keyauth v0.8.1
-	github.com/opengoats/goat v1.0.5
+	github.com/opengoats/goat v1.0.12
 	github.com/rs/xid v1.4.0
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.2
 	google.golang.org/grpc v1.53.0
-	google.golang.org/protobuf v1.28.1
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/emicklei/go-restful v2.9.6+incompatible // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.7.7 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
@@ -56,6 +52,7 @@ require (
 	golang.org/x/sys v0.4.0 // indirect
 	golang.org/x/text v0.6.0 // indirect
 	google.golang.org/genproto v0.0.0-20230110181048-76db0878b65f // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
