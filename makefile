@@ -51,6 +51,17 @@ linux: dep ## Build the binary file
 init: dep ## Inital project 
 	@go run main.go init
 
+pb: ## Copy mcube protobuf files to common/pb
+	@mkdir -pv common/pb/github.com/opengoats/goat/pb
+	@cp -r ${goat_PKG_PATH}/pb/* common/pb/github.com/opengoats/goat/pb
+	@rm -rf common/pb/github.com/opengoats/goat/pb/*/*.go
+
+gen: ## Init Service
+	@protoc -I=. -I=common/pb --go_out=. --go_opt=module=${PKG} --go-grpc_out=. --go-grpc_opt=module=${PKG} apps/*/pb/*.proto
+	@go fmt ./...
+	@protoc-go-inject-tag -input=apps/*/*.pb.go
+	@goat generate enum -p -m apps/*/*.pb.go
+
 run: install dep ## Run Server
 	@go run main.go start
 
@@ -63,14 +74,6 @@ install: ## Install depence go package
 	@go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 	@go install github.com/favadi/protoc-go-inject-tag@latest
-
-gen: ## Init Service
-	@protoc -I=. --go_out=. --go_opt=module=${PKG}  common/pb/*/*.proto
-	@protoc -I=. -I=common/pb --go_out=. --go_opt=module=${PKG} --go-grpc_out=. --go-grpc_opt=module=${PKG} apps/*/pb/*.proto
-	@go fmt ./...
-
-	@protoc-go-inject-tag -input=apps/*/*.pb.go
-	@goat generate enum -p -m apps/*/*.pb.go
 
 
 help: ## Display this help screen

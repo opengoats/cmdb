@@ -18,8 +18,7 @@ var (
 )
 
 type service struct {
-	db *sql.DB
-
+	db  *sql.DB
 	log logger.Logger
 	book.UnimplementedServiceServer
 }
