@@ -13,7 +13,7 @@ require (
 	github.com/go-playground/validator/v10 v10.11.2
 	github.com/go-sql-driver/mysql v1.7.0
 	github.com/imdario/mergo v0.3.13
-	github.com/opengoats/goat v1.0.17
+	github.com/opengoats/goat v1.1.1
 	github.com/rs/xid v1.4.0
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.2
