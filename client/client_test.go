@@ -47,7 +47,7 @@ func TestCreateBook(t *testing.T) {
 
 func TestQueryBook(t *testing.T) {
 	should := assert.New(t)
-	conn, err := grpc.Dial("localhost:18050", grpc.WithInsecure())
+	conn, err := grpc.Dial("localhost:18060", grpc.WithInsecure())
 	defer conn.Close()
 	if should.NoError(err) {
 		client := book.NewServiceClient(conn)

@@ -87,16 +87,17 @@ func NewCreateBookRequest() *CreateBookRequest {
 }
 
 func NewQueryBookRequestFromHTTP(r *http.Request) *QueryBookRequest {
+	qs := r.URL.Query()
+
 	return &QueryBookRequest{
 		Page:     request.NewPageRequestFromHTTP(r),
-		Keywords: "%",
+		Keywords: qs.Get("kws"),
 	}
 }
 
 func NewQueryBookRequest() *QueryBookRequest {
 	return &QueryBookRequest{
-		Page:     request.NewDefaultPageRequest(),
-		Keywords: "%",
+		Page: request.NewDefaultPageRequest(),
 	}
 }
 

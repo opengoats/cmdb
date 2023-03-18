@@ -30,11 +30,6 @@ func (h *handler) QueryBook(r *restful.Request, w *restful.Response) {
 
 	// 默认查询查询
 	req := book.NewQueryBookRequestFromHTTP(r.Request)
-	qs := r.Request.URL.Query()
-
-	if qs.Get("kws") != "" {
-		req.Keywords = qs.Get("kws") + "%"
-	}
 
 	// 数据查询
 	set, err := h.service.QueryBook(r.Request.Context(), req)
