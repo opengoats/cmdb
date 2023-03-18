@@ -29,14 +29,11 @@ func (h *handler) CreateBook(r *restful.Request, w *restful.Response) {
 func (h *handler) QueryBook(r *restful.Request, w *restful.Response) {
 
 	// 默认查询查询
-	req := book.NewQueryBookRequest(r.Request)
+	req := book.NewQueryBookRequestFromHTTP(r.Request)
 	qs := r.Request.URL.Query()
 
-	if qs.Get("book_name") != "" {
-		req.BookName = qs.Get("book_name")
-	}
-	if qs.Get("author") != "" {
-		req.BookName = qs.Get("author")
+	if qs.Get("kws") != "" {
+		req.Keywords = qs.Get("kws") + "%"
 	}
 
 	// 数据查询

@@ -37,7 +37,7 @@ func TestCreateBook(t *testing.T) {
 	if should.NoError(err) {
 		client := book.NewServiceClient(conn)
 		ctx := metadata.NewOutgoingContext(context.Background(), metadata.Pairs())
-		req := &book.CreateBookRequest{BookName: "水浒呼呼", Author: "张三"}
+		req := &book.CreateBookRequest{BookName: "水浒呼呼1111111111", Author: "张三"}
 		reply, err := client.CreateBook(ctx, req)
 		if should.NoError(err) {
 			fmt.Println(reply)
@@ -52,7 +52,7 @@ func TestQueryBook(t *testing.T) {
 	if should.NoError(err) {
 		client := book.NewServiceClient(conn)
 		ctx := metadata.NewOutgoingContext(context.Background(), metadata.Pairs())
-		req := book.NewQueryBookRequestFortest()
+		req := book.NewQueryBookRequest()
 		reply, err := client.QueryBook(ctx, req)
 		if should.NoError(err) {
 			fmt.Println(reply)
